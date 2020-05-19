@@ -1,41 +1,111 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>Divy Srivastava | A stupid developer</title>
+    <title>Divy Srivastava | A stupid developer</title>
 
-	<link rel="icon" href="favicon.ico" type="image/png" />
+    <link rel="icon" href="favicon.ico" type="image/png" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/themes/indigo-white.css">
+    <link rel="stylesheet" href="css/rainbow.css" />
+  </head>
+  <body>
+    <main>
+      <div class="intro">
+        <ul class="c-rainbow">
+          <li class="c-rainbow__layer c-rainbow__layer--white">DIVY</li>
+          <li class="c-rainbow__layer c-rainbow__layer--orange">DIVY</li>
+          <li class="c-rainbow__layer c-rainbow__layer--red">DIVY</li>
+          <li class="c-rainbow__layer c-rainbow__layer--violet">DIVY</li>
+          <li class="c-rainbow__layer c-rainbow__layer--blue">DIVY</li>
+          <li class="c-rainbow__layer c-rainbow__layer--green">DIVY</li>
+          <li class="c-rainbow__layer c-rainbow__layer--yellow">DIVY</li>
+        </ul>
+      </div>
+      <div class="tagline">
+        All-Star Dev | Code Fanatic | Open sourcer | Bruh
+      </div>
+      <!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
+      <div class="icons-social">
+        <a target="_blank" href="https://github.com/divy-work"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a target="_blank" href="https://twitter.com/undefined_void"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a target="_blank" href="https://stackoverflow.com/story/undefined_void"
+          ><i class="fab fa-stack-overflow"></i
+        ></a>
+        <a target="_blank" href="https://medium.com/@dj.srivastava23"
+          ><i class="fab fa-medium"></i
+        ></a>
+        <a target="_blank" href="https://instagram.com/divy.exe"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("load", () => {
+        new Sign().print(document.body);
+      });
 
-	<link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
-	<link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/themes/indigo-white.css">
-	<!-- <link rel="stylesheet" href="css/themes/green-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/red-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/grey-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-indigo.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-blue.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-grey.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-red.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/yellow-black.css"> -->
-</head>
-<body>
-	<main>
-		<div class="intro">Hello, I'm Divy!</div>
-		<div class="tagline">All-Star Dev | Code Fanatic | Open sourcer | Bruh</div>
-		<!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
-		<div class="icons-social">
-			<a target="_blank" href="https://github.com/divy-work"><i class="fab fa-github"></i></a>
-			<a target="_blank" href="https://twitter.com/undefined_void"><i class="fab fa-twitter"></i></a>
-			<a target="_blank" href="https://stackoverflow.com/story/undefined_void"><i class="fab fa-stack-overflow"></i></a>
-			<a target="_blank" href="https://medium.com/@dj.srivastava23"><i class="fab fa-medium"></i></a>
-			<a target="_blank" href="https://www.freecodecamp.org"><i class="fab fa-free-code-camp"></i></a>
-			<a target="_blank" href="https://codepen.io"><i class="fab fa-codepen"></i></a>
-    </div>
-	</main>
-</body>
+      class Sign {
+        constructor(attr = {}) {
+          attr = {
+            ...attr,
+            ...{
+              href: "https://divy.work",
+              innerText: "divy.work",
+              target: "_blank",
+              style: {
+                fontFamily: "monospace",
+                fontSize: "18px",
+                fontWeight: "bold",
+                textDecoration: "none",
+                color: "rgba(255,255,255,.75)",
+                boxSizing: "border-box",
+                display: "block",
+                position: "fixed",
+                padding: "16px",
+                bottom: "16px",
+                left: "50%",
+                transform: "translateX(-50%)",
+              },
+            },
+          };
+          this.$el = this.create();
+          this.$el = this.applyAttributes(this.$el, attr);
+          return this;
+        }
+
+        create() {
+          return document.createElement("a");
+        }
+
+        applyAttributes($a, attr) {
+          $a.href = attr.href;
+          $a.innerText = attr.innerText;
+          $a.target = attr.target;
+          Object.assign($a.style, attr.style);
+          return $a;
+        }
+
+        print($container) {
+          $container.appendChild(this.$el);
+        }
+      }
+    </script>
+  </body>
 </html>
